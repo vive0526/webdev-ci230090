@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+</head>
+<body>
+    <h1 style="color: darkblue; font-family: Arial, sans-serif;">Book Collection</h1>
+
+    <p><strong>Title of the first book:</strong>
+        <span id="titleFirstBook" style="color: green; font-weight: bold; font-family: Arial, sans-serif;"></span>
+    </p>
+
+    <p><strong>Author of the second book:</strong>
+        <span id="authorSecondBook" style="color: purple; font-weight: bold; font-family: Arial, sans-serif;"></span>
+    </p>
+
+    <p><strong>Genres of all books:</strong>
+        <span id="allGenres" style="color: darkred; font-weight: bold; font-family: Arial, sans-serif;"></span>
+    </p>
+
+    <script>
+        // JSON data representing the book collection
+        const bookData = {
+            "books": [
+                {
+                    "title": "The Great Gatsby",
+                    "author": "F. Scott Fitzgerald",
+                    "publicationYear": 1925,
+                    "genres": ["Fiction", "Classics"]
+                },
+                {
+                    "title": "To Kill a Mockingbird",
+                    "author": "Harper Lee",
+                    "publicationYear": 1960,
+                    "genres": ["Fiction", "Coming-of-Age"]
+                }
+            ]
+        };
+
+        // Display the title of the first book
+        document.getElementById("titleFirstBook").textContent = bookData.books[0].title;
+
+        // Display the author of the second book
+        document.getElementById("authorSecondBook").textContent = bookData.books[1].author;
+
+        // Display the genres of all books
+        const allGenres = bookData.books.flatMap(book => book.genres).join(", ");
+        document.getElementById("allGenres").textContent = allGenres;
+    </script>
+</body>
+</html>
